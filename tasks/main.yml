@@ -4,12 +4,17 @@
 - name: Clone the project from git
   git:
     repo: https://github.com/coadunate/nanoView.git
-    dest: "{{ ansible_env.PWD }}"/nanoView
+    dest: "{{ ansible_env.PWD }}/nanoView"
 
-- name: Install and build npm
-  command: "npm install; npm run build;"
+- name: Install npm
+  command: "npm install"
   args:
     chdir: "{{ ansible_env.PWD }}/nanoView"
+
+- name: Build npm
+    command: "npm run build"
+    args:
+      chdir: "{{ ansible_env.PWD }}/nanoView"
 
 - name: Install pip requirments
   command: "pip install -r requirements.txt"
