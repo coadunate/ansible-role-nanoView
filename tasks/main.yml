@@ -6,8 +6,8 @@
     repo: https://github.com/coadunate/nanoView.git
     dest: "{{ ansible_env.PWD }}/nanoView"
 
-- name: Get Node.js from repo
-  command: "yum install -y gcc-c++ make; curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -"
+# - name: Get Node.js from repo
+#   command: "yum install -y gcc-c++ make; curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -"
 
 - name: Install Node.js
   yum:
