@@ -1,0 +1,16 @@
+---
+# tasks file for ansible-role-nanoView/
+
+- name: Clone the project from git
+  git:
+    repo: https://github.com/coadunate/nanoView.git
+
+- name: Install and build npm
+  command: "npm install; npm run build;"
+  args:
+    chdir: "{{ ansible_env.PWD }}/nanoView"
+
+- name: Install pip requirments
+  command: "pip install -r requirements.txt"
+  args:
+    chdir: "{{ ansible_env.PWD }}/nanoView"
