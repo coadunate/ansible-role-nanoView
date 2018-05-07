@@ -4,6 +4,7 @@
 - name: Clone the project from git
   git:
     repo: https://github.com/coadunate/nanoView.git
+    dest: "{{ ansible_env.PWD }}"
 
 - name: Install and build npm
   command: "npm install; npm run build;"
