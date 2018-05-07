@@ -8,6 +8,8 @@
 
 - name: Get Node.js from repo
   command: "yum install -y gcc-c++ make; curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -"
+
+- name: Install Node.js
   yum:
     name: nodejs
   become: true
