@@ -6,13 +6,15 @@
     repo: https://github.com/coadunate/nanoView.git
     dest: "{{ ansible_env.PWD }}/nanoView"
 
-- name: Install npm
-  command: "npm install"
-  args:
-    chdir: "{{ ansible_env.PWD }}/nanoView"
+- name: Get Node.js from repo
+  command: "yum install -y gcc-c++ make; curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -"
+  yum:
+    name: nodejs
+  become: true
+  become_user: root
 
-- name: Build npm
-  command: "npm run build"
+- name: Install and Build npm
+  command: "npm install; npm run build"
   args:
     chdir: "{{ ansible_env.PWD }}/nanoView"
 
