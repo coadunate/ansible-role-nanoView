@@ -15,8 +15,13 @@
   become: true
   become_user: root
 
-- name: Install and Build npm
-  command: "npm install; npm run build"
+- name: Install npm
+  command: "npm install"
+  args:
+    chdir: "{{ ansible_env.PWD }}/nanoView"
+
+- name: Build npm
+  command: "npm run build"
   args:
     chdir: "{{ ansible_env.PWD }}/nanoView"
 
