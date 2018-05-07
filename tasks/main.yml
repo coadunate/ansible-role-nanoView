@@ -12,9 +12,9 @@
     chdir: "{{ ansible_env.PWD }}/nanoView"
 
 - name: Build npm
-    command: "npm run build"
-    args:
-      chdir: "{{ ansible_env.PWD }}/nanoView"
+  command: "npm run build"
+  args:
+    chdir: "{{ ansible_env.PWD }}/nanoView"
 
 - name: Install pip requirments
   command: "pip install -r requirements.txt"
